@@ -63,7 +63,9 @@ function predictWebcam() {
                 p.style = 'margin-left: ' + predictions[n].bbox[0] + 'px; margin-top: '
                     + (predictions[n].bbox[1] - 10) + 'px; width: '
                     + (predictions[n].bbox[2] - 10) + 'px; top: 0; left: 0;';
-
+                if (predictions[n].class == 'cell phone' || predictions[n].class == 'book'){
+                    alert(`Please put your ${predictions[n].class} Down`)
+                }
                 const highlighter = document.createElement('div');
                 highlighter.setAttribute('class', 'highlighter');
                 highlighter.style = 'left: ' + predictions[n].bbox[0] + 'px; top: '
